@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staking AO Token</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+        <h1>sAO</h1>
+        <button id="connectWallet" onclick="connectWallet()">Connect Wallet</button>
+        <button id="disconnectWallet" onclick="disconnectWallet()" style="display: none;">Disconnect Wallet</button>
+        <p id="walletAddress">Wallet Address: Not Connected</p>
+        </header>
+
+        <div id="stakingSection" style="display: none;">
+            <div id="stakingForm">
+                <p><strong>Your AO Balance:</strong> <span id="Balance">0</span></p>
+                <p>Total Your AO Staked: <span id="totalStaked">0</span></p>
+              <label for="amountInput"></label>
+              <input type="number" id="amountInput" placeholder="Enter amount" min="0" step="any" />
+              <button onclick="stakeOrApprove()">Stake</button>
+              <button onclick="unstake()">Unstake</button>
+            </div>
+            <br>
+            
+            <button onclick="stakeAllTokens()">Stake All</button>
+            <button onclick="unstakeAllTokens()">Unstake All</button>
+
+            <p>Pending Reward: <span id="pendingReward">0</span></p>
+            <button onclick="claimReward()">Claim Reward</button>
+            
+            <p>Total AO in SmartContract: <span id="totalAOInChain">0</span></p>
+
+            <div>
+                <p style="text-align: left; font-size: 30px;">Buy 
+                    <a style="font-family: monospace; color: aqua;" href="https://pandaria.lfj.gg/monad-testnet/swap?outputCurrency=0x43EFa69f5A79Df4759F22df439C0F2F3B90ee3F9&inputCurrency=MON">$AO</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="tx-toast-container"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.6.1/web3.min.js"></script>
+    <script src="staking.js"></script>
+</body>
+</html>
